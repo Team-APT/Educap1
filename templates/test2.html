@@ -1,0 +1,75 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>EduCap-Profile</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeOEUtfXBw9muKvZ8-UwMhYv5vDu2oAlDk6Q&usqp=CAU">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Kalam:wght@300&family=Satisfy&family=Peralta&family=Piazzolla:ital,wght@1,200&display=swap" rel="stylesheet">
+    <style>
+    .footer {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height:50px;
+      padding-top:15px;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      font-family:'Piazzolla' ,serif;
+    }
+    </style>
+  </head>
+  <body class="app sidebar-mini">
+
+    <header class="app-header"><a class="app-header__logo" href="#"><i class="icon fa fa-graduation-cap" style="color:white;"></i> EduCap</a>
+      <ul class="app-nav">
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="{% url 'auth_logout' %}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <ul class="app-menu">
+        <li class="app-menu__item"><a href="{% url 'profile' username=request.user.username %}" style="color:#000;"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Home</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'test1' username=request.user.username %}"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Assessment Test</span></a></li>
+        <li class="app-menu__item active"><a href="#"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Personality Test</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'wishlist' username=request.user.username %}"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Wishlist</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'change_password' username=request.user.username %}"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Change password</span></a></li>
+      </ul>
+    </aside>
+    <main class="app-content">
+      <div class="row">
+        <div class="col-md-6" style="margin:auto;">
+          <iframe id="interactApp5f9e4620ac04d30014871e77" width="800" height="800"
+            style="border:none;max-width:100%;margin:0;" allowTransparency="true" frameborder="0"
+            src="https://quiz.tryinteract.com/#/5f9e4620ac04d30014871e77?method=iframe">
+          </iframe>
+        </div>
+      </div>
+    </main>
+    <div class="footer">
+      <div class="col-md-12">
+        <h5>Copyright 2020 Team_APT</h5>
+      </div>
+    <div>
+
+    <!-- Essential javascripts for application to work-->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+
+</html>

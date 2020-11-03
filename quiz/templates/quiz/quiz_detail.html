@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+{{ quiz.title }}
+{% endblock %}
+{% block style %}
+<style>
+  body {
+  margin-left: auto;
+  margin-right: auto;
+  }
+  h1,h3{
+  font-style:italic;
+  text-align:center;
+  }
+  .button {
+    display: block;
+    width: 115px;
+    height: 20px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size:20px;
+    line-height: 25px;
+    text-decoration:none;
+    margin:auto;
+}
+</style>
+{% endblock %}
+{% block content %}
+<h1>{{ quiz.title }}</h1>
+<h3>You will only get one attempt at this quiz. This step is to test your basic knowledge in the field of {{ quiz.category.streamname }}.<br>Answer to the questions genuinely . Don't take help from others or sources.</h3>
+<p>
+  <a class="button" href="{% url 'quiz_question' username=request.user.username quiz_name=quiz.url %}">
+	{% trans "Start Quiz" %}
+  </a>
+</p>
+{% endblock %}

@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Edu</title>
+  <style>
+    .button {
+      display: block;
+      width: 200px;
+      height: 20px;
+      background: #4E9CAF;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      font-size:18px;
+      line-height: 25px;
+      text-decoration:none;
+      margin:auto;
+  }
+  </style>
+</head>
+<body>
+  <header>
+  <h1>colleges</h1>
+  </header>
+  <table>
+  {% for objects in arr %}
+  <tr>
+     <td><a href="#">{{ objects.collegename }}</a></td>
+     <td><a class="button" href="{% url 'add_wishlist' collegeid=objects.collegeid %}">Add to wishlist</td>
+  <tr>
+  {% endfor %}
+  </table>
+</body>
+</html>

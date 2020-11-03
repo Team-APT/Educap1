@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Edu</title>
+  <style>
+    .button {
+      display: block;
+      width: 200px;
+      height: 20px;
+      background: #4E9CAF;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      font-size:20px;
+      line-height: 25px;
+      text-decoration:none;
+      margin:auto;
+  }
+  </style>
+</head>
+<body>
+  <h1><b style="color:red;font-family:'Times New Roman';">{{msg}}</h1>
+  <a class="button" href="{% url 'wishlist' username=request.user.username %}">
+    See your wishlist
+  </a>
+</body>
+</html>

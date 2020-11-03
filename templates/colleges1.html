@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Edu</title>
+  <style>
+    .button {
+      display: block;
+      width: 150px;
+      height: 20px;
+      background: #4E9CAF;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      font-size:15px;
+      line-height: 25px;
+      text-decoration:none;
+  }
+  </style>
+</head>
+<body>
+  <header>
+  <h1>colleges</h1>
+  <h4 style="font-style:italic">To add colleges to your wishlist, please Login/Signup to EduCap</h4>
+  <a class="button" href="{% url 'auth_login' %}">Login</a>
+  <a class="button" href="{% url 'signup' %}">Signup</a>
+  </header>
+  <table>
+  {% for objects in arr %}
+  <tr>
+     <td><a href="#">{{ objects.collegename }}</a></td>
+  <tr>
+  {% endfor %}
+  </table>
+</body>
+</html>

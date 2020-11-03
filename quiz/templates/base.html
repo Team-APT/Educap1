@@ -1,0 +1,34 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<title>{% trans "EduCap-Aptitude Test" %} | {% block title %}{% endblock %}</title>
+<meta name="description" content="{% block description %}{% endblock %}">
+
+<!-- styles -->
+{% block style %}
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+{% endblock %}
+
+</head>
+
+<body>
+
+
+<!-- Before the quiz content -->
+
+<div class="container">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+<!-- After the quiz content -->
+
+
+</body>
+</html>

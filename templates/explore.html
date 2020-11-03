@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Edu</title>
+  <style>
+    .button {
+      display: block;
+      width: 150px;
+      height: 20px;
+      background: #4E9CAF;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      font-size:15px;
+      line-height: 25px;
+      text-decoration:none;
+  }
+  </style>
+</head>
+<body>
+  <header>
+  <h1>Courses</h1>
+  </header>
+  <a class="button" href="{% url 'all_colleges' %}">Explore Colleges</a>
+  {% for obj in dict %}
+  <h2>{{obj}}</h2>
+    {% for elem in dict|get_item:obj %}
+    <table>
+      <tr>
+        <h3>{{ elem }}</h3>
+        {% for item in dict|get_item:obj|get_item:elem %}
+        <tr>
+        <td><a href="{% url 'explore_colleges' courseid=item.courseid %}">{{ item.coursename }}</a></td>
+        </tr>
+        {% endfor %}
+      <tr>
+    </table>
+    {% endfor %}
+  {% endfor %}
+</body>
+</html>

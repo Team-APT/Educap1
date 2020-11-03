@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% load quiz_tags %}
+
+{% block title %} {{ quiz.title}} {% endblock %}
+{% block style %}
+<style>
+  .button {
+    display: block;
+    width: 200px;
+    height: 20px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size:20px;
+    line-height: 25px;
+    text-decoration:none;
+}
+</style>
+{% endblock %}
+{% block content %}
+
+  <div>
+  {% ifequal "Step 4" quiz.title %}
+	<h2>You have successfully completed the test.</h2>
+  <a class="button" href="{% url 'test_result' username=request.user.username %}">
+    View results
+  </a>
+
+  {% else %}
+	<h2>You have successfully completed {{ quiz.title}} </h2>
+  <a class="button" href="{% url 'quiz_index' username=request.user.username %}">
+    Move to next step
+  </a>
+  {% endifequal %}
+
+  </div>
+
+
+
+{% endblock %}

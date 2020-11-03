@@ -1,0 +1,129 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>EduCap-Profile</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeOEUtfXBw9muKvZ8-UwMhYv5vDu2oAlDk6Q&usqp=CAU">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Kalam:wght@300&family=Satisfy&family=Peralta&family=Piazzolla:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link href="{% static 'css/modal.css' %}" rel="stylesheet" />
+    <style>
+    .footer {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height:50px;
+      padding-top:15px;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      font-family:'Piazzolla' ,serif;
+    }
+    .button {
+      display: block;
+      width: 115px;
+      height: 30px;
+      background: #ff3333;
+      padding: 7px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      font-size:15px;
+      text-decoration:none;
+      margin:auto;
+  }
+  .button:hover{
+      text-decoration:none;
+      color: white;
+  }
+    </style>
+  </head>
+
+  <body class="app sidebar-mini">
+
+    <header class="app-header"><a class="app-header__logo" href="#"><i class="icon fa fa-graduation-cap" style="color:white;"></i> EduCap</a>
+      <ul class="app-nav">
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="{% url 'auth_logout' %}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <ul class="app-menu">
+        <li class="app-menu__item"><a href="{% url 'profile' username=request.user.username %}" style="color:#000;"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Home</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'test1' username=request.user.username %}"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Assessment Test</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'test2' username=request.user.username %}"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Personality Test</span></a></li>
+        <li class="app-menu__item active"><a href="#"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Wishlist</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'change_password' username=request.user.username %}"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Change password</span></a></li>
+      </ul>
+    </aside>
+    <main class="app-content">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="widget-small info coloured-icon"><i class="icon fa fa-graduation-cap fa-3x"></i>
+            <div class="info">
+              <h4>Student Name</h4>
+              <p><b>{{ request.user.first_name }} {{ request.user.last_name }}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="widget-small warning coloured-icon"><i class="icon fa fa-send fa-3x"></i>
+            <div class="info">
+              <h4>Email</h4>
+              <p><b>{{ request.user.email }}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="widget-small danger coloured-icon"><i class="icon fa fa-address-book fa-3x"></i>
+            <div class="info">
+              <h4>Contact</h4>
+              <p><b>{{ request.user.contact }}</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="margin:auto;">
+          <div class="tile">
+            <h1 class="tile-title" style="font-size:39px;text-align:center;font-family:'Satisfy',cursive;">My Wishlist</h1>
+            <table style="margin:auto;">
+              {% for obj in arr %}
+              <tr>
+                <td><h3><a href="#">{{ obj.collegename }}</a></h3></td>
+                <td></td><td></td><td></td>
+                <td><a class="button" href="{% url 'remove_wishlist' collegeid=obj.collegeid %}">Remove</a></td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="footer">
+      <div class="col-md-12">
+        <h5>Copyright 2020 Team_APT</h5>
+      </div>
+    <div>
+
+    <!-- Essential javascripts for application to work-->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+
+</html>

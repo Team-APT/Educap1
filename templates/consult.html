@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>Edu</title>
+</head>
+<body>
+  <form method="post">
+    <div class="col-md-4" style="margin:auto;color:black;">
+    {% csrf_token %}
+    <label for="contact"><b>Contact</b></label>
+    <input type="hidden" value="{{ request.user.username }}" name="username">
+    <input type="text" placeholder="Your 10-digit Mobile Number" name="contact" pattern="[6789][0-9]{9}$" required>
+    <button type="submit">Confirm Consultation</button>
+   </div>
+  </form>
+  {% if msg %}
+  <b style="color:red;font-size:18px;font-family:'Times New Roman';">{{ msg }}</b>
+  {% endif %}
+  <a class="button" href="{% url 'profile' username=request.user.username %}">View Profile</a>
+</body>
+</html>

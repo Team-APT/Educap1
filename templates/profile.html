@@ -1,0 +1,140 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>EduCap-Profile</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeOEUtfXBw9muKvZ8-UwMhYv5vDu2oAlDk6Q&usqp=CAU">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Kalam:wght@300&family=Peralta&family=Piazzolla:ital,wght@1,200&display=swap" rel="stylesheet">
+    <style>
+    .footer {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height:50px;
+      padding-top:15px;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      font-family:'Piazzolla' ,serif;
+    }
+    </style>
+  </head>
+
+  <body class="app sidebar-mini">
+
+    <header class="app-header"><a class="app-header__logo" href="#"><i class="icon fa fa-graduation-cap" style="color:white;"></i> EduCap</a>
+      <form class="form-inline ml-auto" style="padding-left:1100px;">
+      <div class="md-form my-0">
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="border-radius:20px;">
+      </div>
+      <button class="btn" type="submit"><i class="fa fa-search text-white" aria-hidden="true"></i></button>
+      </form>
+      <ul class="app-nav">
+        <li class="dropdown"><a class="app-nav__item" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg" style="color:white;"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="{% url 'auth_logout' %}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <ul class="app-menu">
+        <li class="app-menu__item active"><a href="#"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Home</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'test1' username=request.user.username %}"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Assessment Test</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'test2' username=request.user.username %}"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Personality Test</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'wishlist' username=request.user.username %}"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Wishlist</span></a></li>
+        <li class="app-menu__item"><a href="{% url 'change_password' username=request.user.username %}"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Change password</span></a></li>
+      </ul>
+    </aside>
+    <main class="app-content">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="tile">
+            <h1 style="font-style:italic;">WELCOME TO EDUCAP!</h1>
+            <h4>No more confusion over your next step. We are here to help you out.</h4><br></br>
+            <img src="{% static 'img/3.png'%}" style="float:left;padding-right:10px;">
+            <h3 style="font-family: 'EB Garamond',serif;">Switch to our Aptitude Test section and discover your intents and taste with us. After taking our test, you will get a list of best courses fit for your bright future. Currently, we are providing only colleges within the state. But sooner we would expand with the details of deemed universities all over India & also International educational institutions. Stay tuned for exciting features coming up. </h3>
+          </div>
+          <div class="tile">
+            <h2 style="font-style:italic;">EDUCAP WISHLIST</h2>
+            <img src="{% static 'img/4.jpg'%}" style="float:left;padding-right:10px;width:200px;height:180px;">
+            <h3  style="font-family: 'EB Garamond',serif;">We love keeping a bucket list and a todo list. So what about keeping a wishlist of colleges with you? Yaas! EduCap brings you this cool feature so that you can keep track of your favorite colleges without much surfing. Click the button below to find the best colleges & add them to your wishlist.</h3><br></br>
+            <a class="btn btn-success" href="{% url 'explore' %}"><b>Explore Courses & Colleges in Kerala</b></a>
+          </div>
+          <div class="tile">
+            <h2 style="font-style:italic;">CAREER VALIDATOR</h2>
+            <img src="{% static 'img/1.png'%}" style="float:left;padding-right:10px;">
+            <h3 style="font-family: 'EB Garamond',serif;">Understand your fit with different careers. If you grew up wanting to pursue a certain career and didn't find it in your report, find out WHY? Your doubts regarding the interested career and the result you recieved can be mailed to us, properly explaining your queries. Without much delay, we will send you an Analysis Report.</h3><br></br>
+            <h4>Mail us at <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" style="font-style:italic;">EduCapSuccess@gmail.com</a></h4>
+          </div>
+          <div class="tile">
+            <h2 style="font-style:italic;">PHONE CONSULTATION</h2>
+            <img src="{% static 'img/2.png'%}" style="float:left;padding-right:10px;width:200px;height:160px;">
+            <h3 style="font-family: 'EB Garamond',serif;">Discuss your career related questions. Address your concerns. Understand your results better. Service covers a 20 minute phone conversation. We will call you on your number. Wanna grab this oppurtunity? </h3><br></br>
+            <a class="btn btn-danger" href="{% url 'consult' username=request.user.username %}">Click here to register your phone number</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tile" style="text-align:center;">
+            <img class="app-sidebar__user-avatar" src="{% static 'img/1.svg' %}" alt="User Image">
+            <h2>YOUR PROFILE</h2>
+            <h5>Name: {{ request.user.first_name }} {{ request.user.last_name }}</h5>
+            <h5>Username: {{ request.user.username }}</h5>
+            <h5>Email Id: {{ request.user.email }}</h5>
+            <h5>Contact No: {{ request.user.contact }}</h5>
+          </div>
+          <div class="tile">
+            <h2 style="font-style:italic;">ENTRANCE EXAMS</h2>
+            <ul>
+              <li><a href="#">Architecture Entrance</a></li>
+              <li><a href="#">CA, CS Entrance</a></li>
+              <li><a href="#">Defense Services Entrance</a></li>
+              <li><a href="#">Design Courses Entrance</a></li>
+              <li><a href="#">Engineering Entrance</a></li>
+              <li><a href="#">Hotel Management</a></li>
+              <li><a href="#">Law Entrance</a></li>
+              <li><a href="#">Medical Entrance</a></li>
+              <li><a href="#">Pharmacy Entrance</a></li>
+              <li><a href="#">Pilot Training Entrance</a></li>
+            </ul>
+          </div>
+            <div class="tile">
+              <h2 style="font-style:italic;">ARTICLES</h2>
+              <ul>
+                <li><a href="#">Architects, cartographers and surveyors</a></li>
+                <li><a href="#">Careers in research</a></li>
+                <li><a href="#">Careers in security, investigative and protective agencies</a></li>
+                <li><a href="#">Careers in the armed forces</a></li>
+                <li><a href="#">Careers in the entertainment industry that require operating sophisticated equipment</a></li>
+                <li><a href="#">Careers in the transportation industry</a></li>
+                <li><a href="#">Careers related to art, craft and design</a></li>
+                <li><a href="#">Careers related to performing arts</a></li>
+                <li><a href="#">Chefs and cooks</a></li>
+                <li><a href="#">Community Workers</a></li>
+              </ul>
+            </div>
+      </div>
+    </main>
+    <div class="footer">
+      <div class="col-md-12">
+        <h5>Copyright 2020 Team_APT</h5>
+      </div>
+    <div>
+
+    <!-- Essential javascripts for application to work-->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+
+</html>

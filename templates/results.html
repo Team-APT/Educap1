@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>Edu</title>
+</head>
+<body>
+  <header>
+  <h1>Suggested Courses</h1>
+  </header>
+  <table>
+  {% for objects in array %}
+  <tr>
+     <td><a href="{% url 'colleges' username=request.user.username courseid=objects.courseid %}">{{ objects.coursename }}</a></td>
+  <tr>
+  {% endfor %}
+  </table>
+</body>
+</html>
