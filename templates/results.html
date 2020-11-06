@@ -1,17 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Edu</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeOEUtfXBw9muKvZ8-UwMhYv5vDu2oAlDk6Q&usqp=CAU">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{% static 'css/list.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Kalam:wght@300&family=Peralta&family=Piazzolla:ital,wght@1,200&display=swap" rel="stylesheet">
+	<title>EduCap-Explore Courses</title>
+	<style>
+	a{
+		color:#003366;
+	}
+	.button1 {
+		color: white;
+		font-size:15px;
+		text-decoration:none;
+		font-weight: bold;
+}
+.button1:hover{
+	color:white;
+	text-decoration:none;
+	opacity: 0.8;
+}
+	.app-header__logo {
+	  -webkit-box-flex: 1;
+	      -ms-flex: 1 0 auto;
+	          flex: 1 0 auto;
+	  color: #fff;
+	  text-align: center;
+	  font-family: 'Peralta', cursive;
+	  font-size: 30px;
+	  font-weight: 400;
+	  line-height: 50px;
+		background-color: #003366;
+		padding-right: 800px;
+	}
+	</style>
 </head>
+
 <body>
-  <header>
-  <h1>Suggested Courses</h1>
-  </header>
-  <table>
-  {% for objects in array %}
-  <tr>
-     <td><a href="{% url 'colleges' username=request.user.username courseid=objects.courseid %}">{{ objects.coursename }}</a></td>
-  <tr>
+	<header class="nav-header" style="padding-bottom:50px;">
+	<nav id="header-nav" class="navbar navbar-default" style="background-color:#003366; height:100px;">
+	<h3 class="app-header__logo"><i class="icon fa fa-graduation-cap" style="color:white;"></i> EduCap</h3>
+		<div>
+			<div style="padding-left:400px;">
+				<form class="form-inline ml-auto">
+				<div class="md-form my-0">
+					<input class="form-control" type="text" placeholder="Search" aria-label="Search" style="border-radius:20px;">
+				</div>
+				<button class="btn" type="submit"><i class="fa fa-search text-white" aria-hidden="true"></i></button>
+				</form>
+				<div class="navbar-brand">
+					<a class="button1" href="{% url 'profile' username=request.user.username %}">Home | </a>
+				</div>
+				<div class="navbar-brand">
+					<a class="button1" href="{% url 'all_colleges' %}" style="width:200px;">Explore Colleges |</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	</header>
+
+	<h1 class="text-center">Congratulations!!</h1>
+  <h5 class="text-center" style="font-style:italic;">You did a great job on our Assessment Test & based on your performance in different steps, we recommend you the following graduation courses. All the best for your bright future! </h5>
+	<div class="row container container-fluid">
+	{% for objects in array %}
+	<div class="col-md-12 col-sm-12 col-xs-12" id="ML-div">
+		<section>
+		<div id="ML">{{ objects.coursename }}</div><br>
+    <a class="button" href="{% url 'colleges' username=request.user.username courseid=objects.courseid %}">Colleges facilitating this course</a><br>
+		</section>
+	</div>
   {% endfor %}
-  </table>
+	</div>
+
+	<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet">
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeOEUtfXBw9muKvZ8-UwMhYv5vDu2oAlDk6Q&usqp=CAU">
@@ -50,20 +51,73 @@
     </aside>
     <main class="app-content">
       <div class="row">
+        <div class="col-md-4">
+          <div class="widget-small info coloured-icon"><i class="icon fa fa-graduation-cap fa-3x"></i>
+            <div class="info">
+              <h4>Student Name</h4>
+              <p><b>{{ request.user.first_name }} {{ request.user.last_name }}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="widget-small warning coloured-icon"><i class="icon fa fa-send fa-3x"></i>
+            <div class="info">
+              <h4>Email</h4>
+              <p><b>{{ request.user.email }}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="widget-small danger coloured-icon"><i class="icon fa fa-address-book fa-3x"></i>
+            <div class="info">
+              <h4>Contact</h4>
+              <p><b>{{ request.user.contact }}</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-6" style="margin:auto;">
-          <iframe id="interactApp5f9e4620ac04d30014871e77" width="800" height="800"
+          <iframe id="interactApp5f9e4620ac04d30014871e77" width="800" height="600"
             style="border:none;max-width:100%;margin:0;" allowTransparency="true" frameborder="0"
             src="https://quiz.tryinteract.com/#/5f9e4620ac04d30014871e77?method=iframe">
           </iframe>
         </div>
       </div>
+      <footer class="col-md-12" style="padding-top:100px;">
+        <div class="footer" style="background-color:#003366;">
+          <div class="contain" style="background-color:#003366;">
+            <div class="row">
+              <div class="col-md-4 social" style="background-color:#003366;">
+                <div class="social">
+                  <h3>Social</h3>
+                <ul>
+                  <li><img src="{% static 'img/insta.png' %}" alt="instagram icon" width="32" style="width: 32px;"></li>
+                  <li><img src="{% static 'img/fb.png' %}" alt="facebook icon" width="32" style="width: 32px;"></li>
+                  <li><img src="{% static 'img/twitter.png' %}" alt="twitter icon" width="32" style="width: 32px;"></li>
+                  <li>Have queries or something to say to us ?</li>
+                  <li>Write to us at <a href="mailto:educap@gmail.com" style="color:yellow;">educap@gmail.com</a></li>
+                </ul>
+              </div>
+              </div>
+          <div class="col-md-3">
+            <div class='educap'>
+            <h3>EduCap</h3>
+              <p>EduCap is the ultimate destination for all students. Take the aptitude test and get insights on your strengths. Find out through the personality test about your inborn skills. Start exploring!</p>
+              <br><h6 style="color:white;width:410px;margin:auto;"><b>Copyright © 2020 All Rights Reserved by Team APT.</b></h6>
+            </div>
+          </div>
+              <div class="col-md-3">
+                <div class='educap'>
+                <h3>Quick Links</h3>
+                <p style="color:yellow;">About us</p>
+                <p style="color:yellow;">Explore Courses</p>
+                <p style="color:yellow;">Explore Colleges</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
-    <div class="footer">
-      <div class="col-md-12">
-        <h5>Copyright 2020 Team_APT</h5>
-      </div>
-    <div>
-
     <!-- Essential javascripts for application to work-->
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>

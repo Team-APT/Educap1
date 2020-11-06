@@ -1,42 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Edu</title>
-  <style>
-    .button {
-      display: block;
-      width: 150px;
-      height: 20px;
-      background: #4E9CAF;
-      padding: 10px;
-      text-align: center;
-      border-radius: 5px;
-      color: white;
-      font-weight: bold;
-      font-size:15px;
-      line-height: 25px;
-      text-decoration:none;
-  }
-  </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeOEUtfXBw9muKvZ8-UwMhYv5vDu2oAlDk6Q&usqp=CAU">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{% static 'css/list.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Kalam:wght@300&family=Peralta&family=Piazzolla:ital,wght@1,200&display=swap" rel="stylesheet">
+	<title>EduCap-Explore Courses</title>
+	<style>
+	a{
+		color:#003366;
+	}
+	.button1 {
+		color: white;
+		font-size:15px;
+		text-decoration:none;
+		font-weight: bold;
+}
+.button1:hover{
+	color:white;
+	text-decoration:none;
+	opacity: 0.8;
+}
+	.app-header__logo {
+	  -webkit-box-flex: 1;
+	      -ms-flex: 1 0 auto;
+	          flex: 1 0 auto;
+	  color: #fff;
+	  text-align: center;
+	  font-family: 'Peralta', cursive;
+	  font-size: 30px;
+	  font-weight: 400;
+	  line-height: 50px;
+		background-color: #003366;
+		padding-right: 800px;
+	}
+
+	</style>
 </head>
+
 <body>
-  <header>
-  <h1>Courses</h1>
-  </header>
-  <a class="button" href="{% url 'all_colleges' %}">Explore Colleges</a>
-  {% for obj in dict %}
-  <h2>{{obj}}</h2>
-    {% for elem in dict|get_item:obj %}
-    <table>
-      <tr>
-        <h3>{{ elem }}</h3>
-        {% for item in dict|get_item:obj|get_item:elem %}
-        <tr>
-        <td><a href="{% url 'explore_colleges' courseid=item.courseid %}">{{ item.coursename }}</a></td>
-        </tr>
-        {% endfor %}
-      <tr>
-    </table>
-    {% endfor %}
+    <header class="nav-header" style="padding-bottom:50px;">
+    <nav id="header-nav" class="navbar navbar-default" style="background-color:#003366; height:100px;">
+		<h3 class="app-header__logo"><i class="icon fa fa-graduation-cap" style="color:white;"></i> EduCap</h3>
+      <div>
+				<div style="padding-left:400px;">
+					<form class="form-inline ml-auto">
+		      <div class="md-form my-0">
+		        <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="border-radius:20px;">
+		      </div>
+		      <button class="btn" type="submit"><i class="fa fa-search text-white" aria-hidden="true"></i></button>
+		      </form>
+          {% if user.is_authenticated %}
+          <div class="navbar-brand">
+            <a class="button1" href="{% url 'profile' username=request.user.username %}">Home | </a>
+          </div>
+          {% else %}
+          <div class="navbar-brand">
+            <a class="button1" href="{% url 'home' %}">Home | </a>
+          </div>
+					<div class="navbar-brand">
+            <a class="button1" href="{% url 'signup' %}">Signup | </a>
+          </div>
+					<div class="navbar-brand">
+            <a class="button1" href="{% url 'auth_login' %}">Login | </a>
+          </div>
+					{% endif %}
+          <div class="navbar-brand">
+            <a class="button1" href="{% url 'all_colleges' %}" style="width:200px;">Explore Colleges |</a>
+          </div>
+        </div>
+			</div>
+    </nav>
+  	</header>
+
+	<h1 class="text-center">Explore Courses</h1>
+  <h5 class="text-center" style="font-style:italic;">To explore all colleges of kerala, please <a href="{% url 'all_colleges' %}" style="color:blue;">Click here</a></h5>
+	<div class="row container container-fluid">
+	{% for obj in dict %}
+  {% for elem in dict|get_item:obj %}
+  {% for item in dict|get_item:obj|get_item:elem %}
+	<div class="col-md-12 col-sm-12 col-xs-12" id="ML-div">
+		<section>
+		<div id="ML">{{ item.coursename }}</div>
+		<p>Stream: {{ obj }}<br>Substream: {{ elem }}</p>
+    <a class="button" href="{% url 'explore_colleges' courseid=item.courseid %}">Colleges facilitating this course</a><br>
+		</section>
+	</div>
+	{% endfor %}
   {% endfor %}
+  {% endfor %}
+	</div>
+
+	<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

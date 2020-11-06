@@ -189,12 +189,12 @@ def add_wishlist(request,collegeid):
         wish.created=datetime.now()
         wish.save()
         context={
-        'msg':"College successfully added to the wishlist"
+        'msg':"College successfully added to your wishlist!"
         }
         return render(request,'confirm.html',context)
     except IntegrityError:
         context={
-        'msg':"College already added to the wishlist"
+        'msg':"College already added to your wishlist!"
         }
         return render(request,'confirm.html',context)
 
@@ -203,7 +203,7 @@ def remove_wishlist(request,collegeid):
     wish=WishlistItem.objects.get(item=collegeid,user=request.user.username)
     wish.delete()
     context={
-    'msg':"College removed from the wishlist"
+    'msg':"College is removed from your wishlist"
     }
     return render(request,'confirm.html',context)
 

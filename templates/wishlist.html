@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet">
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeOEUtfXBw9muKvZ8-UwMhYv5vDu2oAlDk6Q&usqp=CAU">
@@ -96,28 +97,53 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6" style="margin:auto;">
-          <div class="tile">
+        <div class="col-md-5" style="margin:auto;">
+          <div class="tile" style="background-image:url('{% static 'img/s1.jpg' %}');">
             <h1 class="tile-title" style="font-size:39px;text-align:center;font-family:'Satisfy',cursive;">My Wishlist</h1>
-            <table style="margin:auto;">
-              {% for obj in arr %}
-              <tr>
-                <td><h3><a href="#">{{ obj.collegename }}</a></h3></td>
-                <td></td><td></td><td></td>
-                <td><a class="button" href="{% url 'remove_wishlist' collegeid=obj.collegeid %}">Remove</a></td>
-              </tr>
-              {% endfor %}
-            </table>
           </div>
+          {% for obj in arr %}
+          <div class="tile" style="text-align:center;background-color:#ff99ff;">
+              <h3>{{ obj.collegename }}</h3>
+              <h5>College website: <a href="{{ obj.site }}">{{ obj.site }}</a><h5>
+                <a class="button" href="{% url 'remove_wishlist' collegeid=obj.collegeid %}">Remove</a>
+          </div>
+          {% endfor %}
         </div>
       </div>
+      <footer class="col-md-12" style="padding-top:100px;">
+        <div class="footer" style="background-color:#003366;">
+          <div class="contain" style="background-color:#003366;">
+            <div class="row">
+              <div class="col-md-4 social" style="background-color:#003366;">
+                <div class="social">
+                  <h3>Social</h3>
+                <ul>
+                  <li><img src="{% static 'img/insta.png' %}" alt="instagram icon" width="32" style="width: 32px;"></li>
+                  <li><img src="{% static 'img/fb.png' %}" alt="facebook icon" width="32" style="width: 32px;"></li>
+                  <li><img src="{% static 'img/twitter.png' %}" alt="twitter icon" width="32" style="width: 32px;"></li>
+                  <li>Have queries or something to say to us ?</li>
+                  <li>Write to us at <a href="mailto:educap@gmail.com" style="color:yellow;">educap@gmail.com</a></li>
+                </ul>
+              </div>
+              </div>
+          <div class="col-md-3">
+            <div class='educap'>
+              <h3>EduCap</h3>
+                <p>EduCap is the ultimate destination for all students. Take the aptitude test and get insights on your strengths. Find out through the personality test about your inborn skills. Start exploring!</p>
+                <br><h6 style="color:white;width:410px;margin:auto;"><b>Copyright © 2020 All Rights Reserved by Team APT.</b></h6>
+              </div>
+            </div>
+                <div class="col-md-3">
+                  <div class='educap'>
+                  <h3>Quick Links</h3>
+                  <p style="color:yellow;">About us</p>
+                  <p style="color:yellow;">Explore Courses</p>
+                  <p style="color:yellow;">Explore Colleges</p>
+              </div>
+          </div>
+        </div>
+      </footer>
     </main>
-    <div class="footer">
-      <div class="col-md-12">
-        <h5>Copyright 2020 Team_APT</h5>
-      </div>
-    <div>
-
     <!-- Essential javascripts for application to work-->
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>

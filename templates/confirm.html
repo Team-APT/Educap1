@@ -1,28 +1,47 @@
-<html>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Edu</title>
-  <style>
-    .button {
-      display: block;
-      width: 200px;
-      height: 20px;
-      background: #4E9CAF;
-      padding: 10px;
-      text-align: center;
-      border-radius: 5px;
-      color: white;
-      font-weight: bold;
-      font-size:20px;
-      line-height: 25px;
-      text-decoration:none;
-      margin:auto;
-  }
+	<title>EduCap-Cap of Success</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main1.css' %}">
+	<style>
+  .button {
+    display: block;
+    width: 150px;
+    height: 40px;
+    background: #4E9CAF;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size:18px;
+    text-decoration:none;
+}
   </style>
 </head>
 <body>
-  <h1><b style="color:red;font-family:'Times New Roman';">{{msg}}</h1>
-  <a class="button" href="{% url 'wishlist' username=request.user.username %}">
-    See your wishlist
-  </a>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('{% static 'img/bg4.jpg' %}');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<a class="button" href="{% url 'all_colleges' %}">Back</a><br>
+				<form class="login100-form validate-form p-b-33 p-t-5" action="{% url 'wishlist' username=request.user.username %}">
+					<h1><b style="color:red;font-family:'Times New Roman';">{{msg}}</b></h1><br>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn" type="submit">
+							See your wishlist
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 </html>
