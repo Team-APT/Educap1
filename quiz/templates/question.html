@@ -1,11 +1,8 @@
 {% extends "base.html" %}
 {% load i18n%}
-
 {% load quiz_tags %}
 
-{% block title %} {{ quiz.title }} {% endblock %}
 {% block description %} {{ quiz.title }} - {{ quiz.description }} {% endblock %}
-
 {% block content %}
 
 {% if previous.answers %}

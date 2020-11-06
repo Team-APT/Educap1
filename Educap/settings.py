@@ -83,8 +83,8 @@ DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'educap',
-    'USER': 'root',
-    'PASSWORD': "",
+    'USER': 'treesa',
+    'PASSWORD': "newpass",
     'HOST': "localhost",
     'PORT': "3306",
     'OPTIONS': {

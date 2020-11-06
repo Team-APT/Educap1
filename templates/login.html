@@ -11,6 +11,21 @@
     <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/index.css' %}" rel="stylesheet" />
     <link href="{% static 'css/modal.css' %}" rel="stylesheet" />
+    <style>
+    .button {
+      display: block;
+      width: 80px;
+      height: 30px;
+      background: #4E9CAF;
+      padding: 5px;
+      text-align: center;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size:15px;
+      text-decoration:none;
+  }
+    </style>
 </head>
 
 <body>
@@ -31,7 +46,7 @@
             <div class="tm-row">
                 <div class="tm-col-left"></div>
                 <main class="tm-col-right">
-
+                  <a class="button" href="{% url 'home' %}">Back</a><br>
                   <form method="post">
 
                       <div class="container">

@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet">
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeOEUtfXBw9muKvZ8-UwMhYv5vDu2oAlDk6Q&usqp=CAU">
@@ -59,27 +60,32 @@
         <div class="col-md-8">
           <div class="tile">
             <h1 style="font-style:italic;">WELCOME TO EDUCAP!</h1>
-            <h4>No more confusion over your next step. We are here to help you out.</h4><br></br>
-            <img src="{% static 'img/3.png'%}" style="float:left;padding-right:10px;">
-            <h3 style="font-family: 'EB Garamond',serif;">Switch to our Aptitude Test section and discover your intents and taste with us. After taking our test, you will get a list of best courses fit for your bright future. Currently, we are providing only colleges within the state. But sooner we would expand with the details of deemed universities all over India & also International educational institutions. Stay tuned for exciting features coming up. </h3>
+            <h4>No more confusion over your next step. We are here to help you out.</h4><br>
+            <img src="{% static 'img/3.png'%}" style="float:left;padding-right:10px;height:140px;">
+            <h3 style="font-family: 'EB Garamond',serif;">Switch to our Assessment Test section to evaluate your knowledge in different fields. After taking our test, you will get a list of best courses fit for your bright future. Currently, we are providing only colleges within the state. But sooner we would expand with the details of deemed universities all over India & also International. Stay tuned for exciting features coming up. </h3>
+          </div>
+          <div class="tile">
+            <h2 style="font-style:italic;">PERSONALITY TEST</h2>
+            <img src="{% static 'img/4.png'%}" style="float:left;padding-right:10px;width:200px;height:170px;">
+            <h3 style="font-family: 'EB Garamond',serif;">Switch to our Personality Test section to analyse your character traits and intents. After taking our test, you will be able to discover your career personality. This will help you to realise the field that best suits your persona. In this competitive world, your personality plays a pivotal role in accomplishing a successful career. Thus our personality test could help to bring the best out of you. Stay tuned for exciting features coming up. </h3>
           </div>
           <div class="tile">
             <h2 style="font-style:italic;">EDUCAP WISHLIST</h2>
             <img src="{% static 'img/4.jpg'%}" style="float:left;padding-right:10px;width:200px;height:180px;">
-            <h3  style="font-family: 'EB Garamond',serif;">We love keeping a bucket list and a todo list. So what about keeping a wishlist of colleges with you? Yaas! EduCap brings you this cool feature so that you can keep track of your favorite colleges without much surfing. Click the button below to find the best colleges & add them to your wishlist.</h3><br></br>
+            <h3  style="font-family: 'EB Garamond',serif;">We love keeping a bucket list and a todo list. So what about keeping a wishlist of colleges with you? Yaas! EduCap brings you this cool feature so that you can keep track of your favorite colleges without much surfing. Click the button below to find the best colleges & add them to your wishlist.</h3><br>
             <a class="btn btn-success" href="{% url 'explore' %}"><b>Explore Courses & Colleges in Kerala</b></a>
+          </div>
+          <div class="tile">
+            <h2 style="font-style:italic;">PHONE CONSULTATION</h2>
+            <img src="{% static 'img/2.png'%}" style="float:left;padding-right:10px;width:200px;height:160px;">
+            <h3 style="font-family: 'EB Garamond',serif;">Discuss your career related questions. Address your concerns. Understand your results better. Service covers a 20 minute phone conversation. We will call you on your number. Wanna grab this oppurtunity? </h3><br>
+            <a class="btn btn-danger" href="{% url 'consult' username=request.user.username %}">Click here to register your phone number</a>
           </div>
           <div class="tile">
             <h2 style="font-style:italic;">CAREER VALIDATOR</h2>
             <img src="{% static 'img/1.png'%}" style="float:left;padding-right:10px;">
             <h3 style="font-family: 'EB Garamond',serif;">Understand your fit with different careers. If you grew up wanting to pursue a certain career and didn't find it in your report, find out WHY? Your doubts regarding the interested career and the result you recieved can be mailed to us, properly explaining your queries. Without much delay, we will send you an Analysis Report.</h3><br></br>
             <h4>Mail us at <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" style="font-style:italic;">EduCapSuccess@gmail.com</a></h4>
-          </div>
-          <div class="tile">
-            <h2 style="font-style:italic;">PHONE CONSULTATION</h2>
-            <img src="{% static 'img/2.png'%}" style="float:left;padding-right:10px;width:200px;height:160px;">
-            <h3 style="font-family: 'EB Garamond',serif;">Discuss your career related questions. Address your concerns. Understand your results better. Service covers a 20 minute phone conversation. We will call you on your number. Wanna grab this oppurtunity? </h3><br></br>
-            <a class="btn btn-danger" href="{% url 'consult' username=request.user.username %}">Click here to register your phone number</a>
           </div>
         </div>
         <div class="col-md-4">
@@ -122,13 +128,40 @@
               </ul>
             </div>
       </div>
-    </main>
-    <div class="footer">
-      <div class="col-md-12">
-        <h5>Copyright 2020 Team_APT</h5>
-      </div>
-    <div>
-
+      <footer class="col-md-12" style="padding-top:100px;">
+        <div class="footer" style="background-color:#003366;">
+          <div class="contain" style="background-color:#003366;">
+            <div class="row">
+              <div class="col-md-4 social" style="background-color:#003366;">
+                <div class="social">
+                  <h3>Social</h3>
+                <ul>
+                  <li><img src="{% static 'img/insta.png' %}" alt="instagram icon" width="32" style="width: 32px;"></li>
+                  <li><img src="{% static 'img/fb.png' %}" alt="facebook icon" width="32" style="width: 32px;"></li>
+                  <li><img src="{% static 'img/twitter.png' %}" alt="twitter icon" width="32" style="width: 32px;"></li>
+                  <li>Have queries or something to say to us ?</li>
+                  <li>Write to us at <a href="mailto:educap@gmail.com" style="color:yellow;">educap@gmail.com</a></li>
+                </ul>
+              </div>
+              </div>
+          <div class="col-md-3">
+            <div class='educap'>
+              <h3>EduCap</h3>
+                <p>EduCap is the ultimate destination for all students. Take the aptitude test and get insights on your strengths. Find out through the personality test about your inborn skills. Start exploring!</p>
+                <br><h6 style="color:white;width:410px;margin:auto;"><b>Copyright © 2020 All Rights Reserved by Team APT.</b></h6>
+              </div>
+            </div>
+                <div class="col-md-3">
+                  <div class='educap'>
+                  <h3>Quick Links</h3>
+                  <p style="color:yellow;">About us</p>
+                  <p style="color:yellow;">Explore Courses</p>
+                  <p style="color:yellow;">Explore Colleges</p>
+              </div>
+          </div>
+        </div>
+      </footer>
+  </main>
     <!-- Essential javascripts for application to work-->
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>

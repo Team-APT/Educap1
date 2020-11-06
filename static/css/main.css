@@ -47,7 +47,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+article, aside, figcaption, figure, foot, header, hgroup, main, nav, section {
   display: block;
 }
 
@@ -467,13 +467,13 @@ mark,
   font-size: 1.09375rem;
 }
 
-.blockquote-footer {
+.blockquote-foot {
   display: block;
   font-size: 80%;
   color: #6c757d;
 }
 
-.blockquote-footer::before {
+.blockquote-foot::before {
   content: "\2014\00A0";
 }
 
@@ -4958,13 +4958,13 @@ input[type="button"].btn-block {
   border-top: 0;
 }
 
-.card-footer {
+.card-foot {
   padding: 0.75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.card-footer:last-child {
+.card-foot:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }
 
@@ -5086,7 +5086,7 @@ input[type="button"].btn-block {
     border-top-right-radius: 0;
   }
   .card-group > .card:not(:last-child) .card-img-bottom,
-  .card-group > .card:not(:last-child) .card-footer {
+  .card-group > .card:not(:last-child) .card-foot {
     border-bottom-right-radius: 0;
   }
   .card-group > .card:not(:first-child) {
@@ -5098,7 +5098,7 @@ input[type="button"].btn-block {
     border-top-left-radius: 0;
   }
   .card-group > .card:not(:first-child) .card-img-bottom,
-  .card-group > .card:not(:first-child) .card-footer {
+  .card-group > .card:not(:first-child) .card-foot {
     border-bottom-left-radius: 0;
   }
 }
@@ -6181,7 +6181,7 @@ a.close.disabled {
 }
 
 .modal-dialog-scrollable .modal-header,
-.modal-dialog-scrollable .modal-footer {
+.modal-dialog-scrollable .modal-foot {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
@@ -6295,7 +6295,7 @@ a.close.disabled {
   padding: 1rem;
 }
 
-.modal-footer {
+.modal-foot {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6311,11 +6311,11 @@ a.close.disabled {
   border-bottom-left-radius: 0.3rem;
 }
 
-.modal-footer > :not(:first-child) {
+.modal-foot > :not(:first-child) {
   margin-left: .25rem;
 }
 
-.modal-footer > :not(:last-child) {
+.modal-foot > :not(:last-child) {
   margin-right: .25rem;
 }
 
@@ -15091,7 +15091,7 @@ be a descendant of the grid when it is being dragged.
   color: #333;
 }
 
-.app-notification__footer {
+.app-notification__foot {
   padding: 8px 20px;
   text-align: center;
   background-color: #eee;
@@ -15613,7 +15613,7 @@ be a descendant of the grid when it is being dragged.
           flex: 0 0 auto;
 }
 
-.tile .tile-footer {
+.tile .tile-foot {
   border-top: 1px solid #ddd;
   padding: 20px 0 0 0;
   margin-top: 10px;
@@ -16337,7 +16337,7 @@ be a descendant of the grid when it is being dragged.
   fill: transparent;
 }
 
-.landing-footer {
+.landing-foot {
   padding: 20px;
   text-align: center;
   border-top: 1px solid #ddd;

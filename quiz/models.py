@@ -601,6 +601,7 @@ class College(models.Model):
     collegeid = models.AutoField(primary_key=True)
     collegename = models.CharField(unique=True, max_length=100)
     site = models.CharField(max_length=100, blank=True, null=True)
+    rating = models.CharField(max_length=10, blank=True, null=True)
 
     class Meta:
         managed = True
@@ -613,6 +614,8 @@ class College(models.Model):
 class Collegesofcourse(models.Model):
     courseid = models.ForeignKey('Course', models.DO_NOTHING, db_column='courseid')
     collegename = models.CharField(max_length=100)
+    site = models.CharField(max_length=100, blank=True, null=True)
+    rating = models.CharField(max_length=10)
 
     class Meta:
         managed = True
