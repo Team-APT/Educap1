@@ -5,30 +5,6 @@
 {% block description %} {{ quiz.title }} - {{ quiz.description }} {% endblock %}
 {% block content %}
 
-{% if previous.answers %}
-
-  <p class="muted"><small>{% trans "The previous question" %}:</small></p>
-  <p>{{ previous.previous_question }}</p>
-
-  {% if previous.previous_outcome %}
-	<div class="alert alert-success">
-  {% else %}
-	<div class="alert alert-warning">
-  {% endif %}
-  	  <p><small>
-		{% trans "Your answer was" %} </small>
-		<strong>
-		  {{ previous.previous_outcome|yesno:"correct,incorrect" }}
-		</strong>
-	  </p>
-
-	</div>
-
-	{% include 'correct_answer.html' %}
-	<hr>
-
-{% endif %}
-
 <br />
 
 {% if question %}

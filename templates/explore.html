@@ -50,9 +50,9 @@
 				<div style="padding-left:400px;">
 					<form class="form-inline ml-auto">
 		      <div class="md-form my-0">
-		        <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="border-radius:20px;">
+		        <input class="form-control" id="searchbar" onkeyup="search_word()" type="text" placeholder="Search" aria-label="Search" style="border-radius:20px;">
 		      </div>
-		      <button class="btn" type="submit"><i class="fa fa-search text-white" aria-hidden="true"></i></button>
+		      <button class="btn"><i class="fa fa-search text-white" aria-hidden="true"></i></button>
 		      </form>
           {% if user.is_authenticated %}
           <div class="navbar-brand">
@@ -83,8 +83,8 @@
 	{% for obj in dict %}
   {% for elem in dict|get_item:obj %}
   {% for item in dict|get_item:obj|get_item:elem %}
-	<div class="col-md-12 col-sm-12 col-xs-12" id="ML-div">
-		<section>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<section class="words" id="ML-div">
 		<div id="ML">{{ item.coursename }}</div>
 		<p>Stream: {{ obj }}<br>Substream: {{ elem }}</p>
     <a class="button" href="{% url 'explore_colleges' courseid=item.courseid %}">Colleges facilitating this course</a><br>
@@ -97,6 +97,6 @@
 
 	<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/search.js' %}"></script>
 </body>
 </html>

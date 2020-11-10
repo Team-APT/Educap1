@@ -49,9 +49,9 @@
 			<div style="padding-left:400px;">
 				<form class="form-inline ml-auto">
 				<div class="md-form my-0">
-					<input class="form-control" type="text" placeholder="Search" aria-label="Search" style="border-radius:20px;">
+					<input class="form-control" id="searchbar" onkeyup="search_word()" type="text" placeholder="Search" aria-label="Search" style="border-radius:20px;">
 				</div>
-				<button class="btn" type="submit"><i class="fa fa-search text-white" aria-hidden="true"></i></button>
+				<button class="btn"><i class="fa fa-search text-white" aria-hidden="true"></i></button>
 				</form>
 				<div class="navbar-brand">
 					<a class="button1" href="{% url 'profile' username=request.user.username %}">Home | </a>
@@ -68,8 +68,8 @@
   <h5 class="text-center" style="font-style:italic;">You did a great job on our Assessment Test & based on your performance in different steps, we recommend you the following graduation courses. All the best for your bright future! </h5>
 	<div class="row container container-fluid">
 	{% for objects in array %}
-	<div class="col-md-12 col-sm-12 col-xs-12" id="ML-div">
-		<section>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<section class="words" id="ML-div">
 		<div id="ML">{{ objects.coursename }}</div><br>
     <a class="button" href="{% url 'colleges' username=request.user.username courseid=objects.courseid %}">Colleges facilitating this course</a><br>
 		</section>
@@ -79,6 +79,6 @@
 
 	<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/search.js' %}"></script>
 </body>
 </html>
