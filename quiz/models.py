@@ -614,8 +614,6 @@ class College(models.Model):
 class Collegesofcourse(models.Model):
     courseid = models.ForeignKey('Course', models.DO_NOTHING, db_column='courseid')
     collegename = models.CharField(max_length=100)
-    site = models.CharField(max_length=100, blank=True, null=True)
-    rating = models.CharField(max_length=10)
 
     class Meta:
         managed = True
